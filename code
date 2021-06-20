@@ -1,0 +1,60 @@
+
+//this first block was copied from somewhere it basically allows a infinte loop to still allow the browser to be responsive
+let startTime = performance.now();
+async function refreshUI(l){
+    if(performance.now() > startTime + l){    //You can change the 20 to how often you want to refresh the UI in milliseconds
+        startTime = performance.now();
+        await new Promise(r => setTimeout(r, 0));
+    }
+}
+console.log("555")
+
+async function functionThatTakesLongTime(o){
+
+console.log("main loop- before Start")
+
+
+//infinite loop
+while(true){
+console.log("StartofLopp");
+//save 15 caracters on the end of the page
+var text=document.body.innerText;
+var posi = text.lastIndexOf('@');
+var subText=text.substring((posi-15), posi)
+
+//
+await refreshUI(20);    //Refresh the UI if needed
+//pause 1 second
+i=-400000000
+while (i < 10) {
+  i++;0}
+
+//check if the 15 caracter saved are still visible
+var text=document.body.innerText; 
+var pos = text.lastIndexOf(subText);
+console.log(subText);
+/////////////////////////////////////////////////////////////////////
+//if not found the page was refreshd
+while (pos==-1){
+//scroll back half page at a time
+window.scrollBy(0, (window.innerHeight)/2);
+
+console.log("inside Scroll")
+//pause 1 second
+i=-400000000
+while (i < 10) {
+  i++;0}
+
+await refreshUI(20);    //Refresh the UI if needed
+//check if is found
+var text=document.body.innerText;
+var pos = text.lastIndexOf(subText);}
+console.log("found ITTTTT")
+}
+return i
+}
+
+alert("The result is " + await functionThatTakesLongTime(3));
+//TO DO
+//twitter icon clik to refresh detect
+///check url if  twitter/home
